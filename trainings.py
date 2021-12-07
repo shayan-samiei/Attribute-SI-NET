@@ -197,9 +197,9 @@ def dict_training_multi_branch(num_epoch,
             # compute losses and evaluation metrics:
             attr_loss, loss_total = loss_calculator(out_data, data, cce_loss, bce_loss)
             if idx ==1:
-                loss_parts = attr_loss
+                loss_parts_train = attr_loss
             else:
-                loss_parts = np.add(loss_parts,attr_loss)
+                loss_parts_train = np.add(loss_parts_train,attr_loss)
 
             y_attr, y_target = y_attributes(out_data, data)
             # evaluation    
@@ -244,9 +244,9 @@ def dict_training_multi_branch(num_epoch,
                 # compute losses and evaluation metrics:
                 attr_loss, loss_total = loss_calculator(out_data, data, cce_loss, bce_loss)
                 if idx == 1:
-                    loss_parts = attr_loss
+                    loss_parts_test = attr_loss
                 else:
-                    loss_parts = np.add(loss_parts, attr_loss)
+                    loss_parts_test = np.add(loss_parts_test, attr_loss)
                 y_attr, y_target = y_attributes(out_data, data)
 
                 test_attr_metrics = tensor_metrics(y_target.float(), y_attr)
