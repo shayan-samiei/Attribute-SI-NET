@@ -164,8 +164,6 @@ def dict_training_multi_branch(num_epoch,
         Acc_test = []
     attr_loss_train = torch.zeros(num_epoch,48)
     attr_loss_test = torch.zeros(num_epoch,48)
-    loss_parts_train = []
-    loss_parts_test = []
 
     print('epoches started')
     if resume:
@@ -179,8 +177,9 @@ def dict_training_multi_branch(num_epoch,
         attr_net.train()
         loss_e = []
         loss_t = []
+        loss_parts_train = []
+        loss_parts_test = []
 
-        loss_
         # attributes temporary metrics lists
         ft_train = []
         ft_test = []
